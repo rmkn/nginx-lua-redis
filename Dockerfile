@@ -7,7 +7,7 @@ RUN curl -o /usr/local/src/ngx_http_redis.tar.gz -SL http://people.freebsd.org/~
 	&& tar zxf /usr/local/src/ngx_http_redis.tar.gz -C /usr/local/src
 
 RUN cd /usr/local/src/nginx-${NGINX_VERSION} \
-	&& ./configure --prefix=/opt/nginx --with-ld-opt="-Wl,-rpath,/usr/local/luajit/lib" --add-module=../ngx_devel_kit-${NDK_VERSION} --add-module=../lua-nginx-module-${LUAMOD_VERSION} --add-module=../ngx_http_redis-${REDISMOD_VERSION} \
+	&& ./configure --prefix=/usr/local/nginx --with-ld-opt="-Wl,-rpath,/usr/local/luajit/lib" --add-module=../ngx_devel_kit-${NDK_VERSION} --add-module=../lua-nginx-module-${LUAMOD_VERSION} --add-module=../ngx_http_redis-${REDISMOD_VERSION} \
 	&& make \
 	&& make install
 
